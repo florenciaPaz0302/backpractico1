@@ -4,29 +4,54 @@ class ProductManager {
     }
     static id = 0
 
-    addProduct(titulo, descripcion, precio, imagen, codigo, stock) {
-        ProductManager.id++
-        this.products.push({ titulo, descripcion, precio, imagen, codigo, stock, id:ProductManager.id });
+    addProduct(title, description, price, imagen, code, stock) {
+        for(let i = 0; i < this.products.length;i++){
+            if (this.products[i].code === code) {
+                console.log(`el codigo ${code} esta repetido`);
+                break;
+            }
+        }
+
+     const newProduct ={
+        title,
+        description, 
+        price, 
+        imagen, 
+        code, 
+        stock,
+     }
+        if(!Object.values(newProduct).includes(undefined)){
+          ProductManager.id++
+          this.products.push({ 
+            ...newProduct,
+            id: ProductManager.id, 
+          });
+        }else{
+            console.log("llenar todos los campos")
+        }    
     }
 
     getProduct(){
         return this.products;
     }
-    getProductById(id){
-        if(!this.products.find((producto) => producto.id === id)){
-            console.log("Producto no encontrado")
-        } else{
-            console.log("producto encontrado")
-        }
-
+    existe (id) {
+        return this.products.find((producto) => producto.id === id)
+    }
+    getProductById(id) {
+      !this.existe(id) ? console.log("not found") : console.log(this.existe(id));
     }
 }
-const productos = new ProductManager
+const productos = new ProductManager();
 
-productos.addProduct("remera", "blanca con mangas", 500, "imagen1", "abc123", 5);
-productos.addProduct("short", "negro con blanco", 400, "image21", "abc124", 4);
+console.log(productos.getProduct());
 
-console.log(productos.getProduct())
+productos.addProduct("remera", "blanca con mangas", 500, "imagen1", "abc123",5 );
+productos.addProduct("short", "negro con blanco", 400, "imagen2", "abc124");
 
-console.log(productos.getProductById(2))
+
+console.log(productos.getProduct());
+
+productos.addProduct("medias", "negras", 200, "imagen3", "abc124", 2);
+
+productos.getProductById(2);
 
