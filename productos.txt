@@ -1,0 +1,1 @@
+[{"title":"Remera rosa","description":"Rosa mangas cortas","price":500,"imagen":"Imagen1","code":"prueba123","stock":3,"id":1},{"title":"Remera verde","description":"verde mangas cortas","price":400,"imagen":"Imagen2","code":"prueba123","stock":4,"id":2}]
