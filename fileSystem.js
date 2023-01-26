@@ -41,11 +41,15 @@ class ProductManager {
     let respuesta3 = await this.readProducts();
     let productfilter = respuesta3.filter(products => products.id != id)
     await fs.writeFile(this.path, JSON.stringify(productfilter));
+    console.log("se elimino el Prod")
  };
-  updateProduct = async (producto) => {
-    console.log(producto);
-
- };
+  updateProducts = async ({id, ...producto}) => {
+    await this.deleteProductsById(id);
+    let prod = await this.readProducts()
+    console.log(prod)
+    let productAgregado = [{ id, ...producto }, ...prod];
+    await fs.writeFile(this.path, JSON.stringify(productAgregado));
+  };
 };
 
 const productos = new ProductManager
@@ -57,9 +61,9 @@ productos.addProduct("Remera roja", "roja mangas cortas", 300, "Imagen", "prueba
 //productos.getProducts()
 
 //productos.getProductsById(2)
-//productos.deleteProductsById(2)
+//productos.deleteProductsById(3)
 productos.updateProducts({
-    title: 'Remera verde',
+  title: 'Remera verde',
     description: 'verde mangas cortas',
     price: 2400,
     imagen: 'Imagen2',
