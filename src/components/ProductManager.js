@@ -1,6 +1,6 @@
 import { promises as fs } from "fs"
 
-class ProductManager {
+export default class ProductManager {
   constructor() {
     this.path = "./productos.txt"
     this.products = []
@@ -52,17 +52,24 @@ class ProductManager {
   };
 };
 
-const productos = new ProductManager
+//const productos = new ProductManager
 
 /*productos.addProduct("Remera rosa", "Rosa mangas cortas", 500, "Imagen1", "prueba123", 3)
-productos.addProduct("Remera verde", "verde mangas cortas", 400, "Imagen2", "prueba123", 4)
-productos.addProduct("Remera roja", "roja mangas cortas", 300, "Imagen", "prueba123", 5)*/
+productos.addProduct("Remera verde", "verde mangas cortas", 400, "Imagen2", "prueba124", 4)
+productos.addProduct("Remera roja", "roja mangas cortas", 300, "Imagen3", "prueba125", 5)
+productos.addProduct("short rosa", "descripcion short1", 1100, "Imagen4", "prueba126", 2)
+productos.addProduct("Short verde", "descripcion short2", 300, "Imagen5", "prueba126", 10)
+productos.addProduct("Short azul", "descripcion short3", 900, "Imagen6", "prueba127", 9)
+productos.addProduct("Short amarillo", "descripcion short4", 400, "Imagen7", "prueba128", 8)
+productos.addProduct("Short naranja", "descripcion short5", 500, "Imagen8", "prueba129", 7)
+productos.addProduct("medias azules", "descripcion medias1", 100, "Imagen9", "prueba130", 6)
+productos.addProduct("medias rosas", "descripcion medias1", 200, "Imagen10", "prueba131", 12)*/
 
 //productos.getProducts()
 
 //productos.getProductsById(2)
 //productos.deleteProductsById(3)
-productos.updateProducts({
+/*productos.updateProducts({
   title: 'Remera verde',
     description: 'verde mangas cortas',
     price: 2400,
@@ -70,4 +77,4 @@ productos.updateProducts({
     code: 'prueba123',
     stock: 4,
     id: 2
-})
+})*/
